@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.carloshns.change.entities.Quedas;
 
@@ -42,12 +43,22 @@ public class QuedasDAO implements IQuedasDAO {
 
     @Override
     public boolean atualizar(Quedas queda) {
-        return false;
+
+        ContentValues cv = new ContentValues();
+        cv.put(DBHelper.QUEDAS_DESCRICAO, queda.getDescricao());
+        String[] parametros = {queda.getId().toString()};
+
+        escrever.update(DBHelper.TABELA_QUEDAS, cv, "id=?", parametros);
+        return true;
     }
 
     @Override
     public boolean deletar(Quedas queda) {
-        return false;
+
+        String[] args = {queda.getId().toString()};
+        escrever.delete(DBHelper.TABELA_QUEDAS, "id=?", args);
+
+        return true;
     }
 
     @Override

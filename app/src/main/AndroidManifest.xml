@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ConteudoActivity"></activity>
-        <activity android:name=".activity.CadastrarEditarActivity" />
+        <activity android:name=".activity.ConteudoActivity"
+            android:label="@string/act_name_conteudo"
+            android:parentActivityName=".activity.MainActivity"></activity>
+        <activity android:name=".activity.CadastrarEditarActivity"
+            android:parentActivityName=".activity.MainActivity"/>
         <activity android:name=".activity.ProfileActivity" />
         <activity
             android:name=".activity.MainActivity"
